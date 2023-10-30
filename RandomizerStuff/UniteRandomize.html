@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unite Randomizer</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" href="UniteRandomizeStyles.css">
+</head>
+<body>
+    <fieldset id="Settings">
+        <legend>Choose What You Want Randomized</legend>
+        <button id="AllPokemonOff" onclick="removeAllPoke()">Remove All Pokemon!</button>
+        <button id="AllPokemonOn" onclick="addAllPoke()">Add All Pokemon!</button>
+        <div id="checkboxes">
+            <label><b>What Do You Want Randomized?</b></label><br>
+            <label for="RandLane">Lane: </label>
+            <input type="checkbox" id="RandLane" name="RandLane" checked>&emsp;
+            <label for="Moves">Moves: </label>
+            <input type="checkbox" id="Moves" name="Moves" checked>&emsp;
+            <label for="BattleItem">Battle Item: </label>
+            <input type="checkbox" id="BattleItem" name="BattleItem" checked>&emsp;
+            <label for="HeldItems">Held Items: </label>
+            <input type="checkbox" id="HeldItems" name="HeldItems"><br><br>
+            <label><b>Limit Classes Of Pokemon That Can Be Selected:</b></label><br>
+            <label for="AllowAttackers">Attackers: </label>
+            <input type="checkbox" id="AllowAttackers" name="AllowAttackers" checked>
+            <label for="AllowDefenders"> &emsp;Defenders: </label>
+            <input type="checkbox" id="AllowDefenders" name="AllowDefenders" checked>
+            <label for="AllowAllRounders"> &emsp;All-Rounders: </label>
+            <input type="checkbox" id="AllowAllRounders" name="AllowAllRounders" checked>
+            <label for="AllowSpeedsters"> &emsp;Speedsters: </label>
+            <input type="checkbox" id="AllowSpeedsters" name="AllowSpeedsters" checked>
+            <label for="AllowSupporters"> &emsp;Supporters: </label>
+            <input type="checkbox" id="AllowSupporters" name="AllowSupporters" checked>
+        </div>
+        <div id="IndividualPokemon">
+            <button class="IndivPoke Attacker" id="Cinderace" onclick="removeAddPoke(Cinderace, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/cinderace/stat/stat-cinderace.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Garchomp" onclick="removeAddPoke(Garchomp, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/garchomp/stat/stat-garchomp.png');"></button>
+            <button class="IndivPoke Speedster" id="Gengar" onclick="removeAddPoke(Gengar, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/gengar/stat/stat-gengar.png');"></button>
+            <button class="IndivPoke Attacker" id="Cramorant" onclick="removeAddPoke(Cramorant, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/cramorant/stat/stat-cramorant.png');"></button>
+            <button class="IndivPoke Attacker" id="NinetalesAlola" onclick="removeAddPoke(NinetalesAlola, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/alolan-ninetales/stat/stat-alolan-ninetales.png');"></button>
+            <button class="IndivPoke Supporter" id="Wigglytuff" onclick="removeAddPoke(Wigglytuff, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/wigglytuff/stat/stat-wigglytuff.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Machamp" onclick="removeAddPoke(Machamp, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/machamp/stat/stat-machamp.png');"></button>
+            <button class="IndivPoke Speedster" id="Absol" onclick="removeAddPoke(Absol, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/absol/stat/stat-absol.png');"></button>
+            <button class="IndivPoke Defender" id="Slowbro" onclick="removeAddPoke(Slowbro, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/slowbro/stat/stat-slowbro.png');"></button>
+            <button class="IndivPoke Supporter" id="MrMime" onclick="removeAddPoke(MrMime, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/mr-mime/stat/stat-mr-mime.png');"></button>
+            <button class="IndivPoke Attacker" id="Venusaur" onclick="removeAddPoke(Venusaur, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/venusaur/stat/stat-venusaur.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Lucario" onclick="removeAddPoke(Lucario, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/lucario/stat/stat-lucario.png');"></button>
+            <button class="IndivPoke Speedster" id="Talonflame" onclick="removeAddPoke(Talonflame, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/talonflame/stat/stat-talonflame.png');"></button>
+            <button class="IndivPoke Supporter" id="Eldegoss" onclick="removeAddPoke(Eldegoss, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/eldegoss/stat/stat-eldegoss.png');"></button>
+            <button class="IndivPoke Attacker" id="Greninja" onclick="removeAddPoke(Greninja, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/greninja/stat/stat-greninja.png');"></button>
+            <button class="IndivPoke Defender" id="Crustle" onclick="removeAddPoke(Crustle, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/crustle/stat/stat-crustle.png');"></button>
+            <button class="IndivPoke Defender" id="Snorlax" onclick="removeAddPoke(Snorlax, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/snorlax/stat/stat-snorlax.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Charizard" onclick="removeAddPoke(Charizard, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/charizard/stat/stat-charizard.png');"></button>
+            <button class="IndivPoke Attacker" id="Pikachu" onclick="removeAddPoke(Pikachu, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/pikachu/stat/stat-pikachu.png');"></button>
+            <button class="IndivPoke Speedster" id="Zeraora" onclick="removeAddPoke(Zeraora, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/zeraora/stat/stat-zeraora.png');"></button>
+            <button class="IndivPoke Attacker" id="Gardevoir" onclick="removeAddPoke(Gardevoir, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/gardevoir/stat/stat-gardevoir.png');"></button>
+            <button class="IndivPoke Supporter" id="Blissey" onclick="removeAddPoke(Blissey, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/blissey/stat/stat-blissey.png');"></button>
+            <button class="IndivPoke Defender" id="Blastoise" onclick="removeAddPoke(Blastoise, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/blastoise/stat/stat-blastoise.png');"></button>
+            <button class="IndivPoke Defender" id="Mamoswine" onclick="removeAddPoke(Mamoswine, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/mamoswine/stat/stat-mamoswine.png');"></button>
+            <button class="IndivPoke Attacker" id="Sylveon" onclick="removeAddPoke(Sylveon, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/sylveon/stat/stat-sylveon.png');"></button>
+            <button class="IndivPoke Defender" id="Greedent" onclick="removeAddPoke(Greedent, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/greedent/stat/stat-greedent.png');"></button>
+            <button class="IndivPoke Attacker" id="Decidueye" onclick="removeAddPoke(Decidueye, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/decidueye/stat/stat-decidueye.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Tsareena" onclick="removeAddPoke(Tsareena, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/tsareena/stat/stat-tsareena.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Dragonite" onclick="removeAddPoke(Dragonite, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/dragonite/stat/stat-dragonite.png');"></button>
+            <button class="IndivPoke Defender" id="Trevenant" onclick="removeAddPoke(Trevenant, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/trevenant/stat/stat-trevenant.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Aegislash" onclick="removeAddPoke(Aegislash, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/aegislash/stat/stat-aegislash.png');"></button>
+            <button class="IndivPoke Supporter" id="Hoopa" onclick="removeAddPoke(Hoopa, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/hoopa/stat/stat-hoopa.png');"></button>
+            <button class="IndivPoke Attacker" id="Duraludon" onclick="removeAddPoke(Duraludon, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/duraludon/stat/stat-duraludon.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Azumarill" onclick="removeAddPoke(Azumarill, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/azumarill/stat/stat-azumarill.png');"></button>
+            <button class="IndivPoke Attacker" id="Espeon" onclick="removeAddPoke(Espeon, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/espeon/stat/stat-espeon.png');"></button>
+            <button class="IndivPoke Attacker" id="Delphox" onclick="removeAddPoke(Delphox, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/delphox/stat/stat-delphox.png');"></button>
+            <button class="IndivPoke Attacker" id="Glaceon" onclick="removeAddPoke(Glaceon, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/glaceon/stat/stat-glaceon.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Buzzwole" onclick="removeAddPoke(Buzzwole, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/buzzwole/stat/stat-buzzwole.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Tyranitar" onclick="removeAddPoke(Tyranitar, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/tyranitar/stat/stat-tyranitar.png');"></button>
+            <button class="IndivPoke Attacker" id="Mew" onclick="removeAddPoke(Mew, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/mew/stat/stat-mew.png');"></button>
+            <button class="IndivPoke Speedster" id="Dodrio" onclick="removeAddPoke(Dodrio, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/dodrio/stat/stat-dodrio.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Scizor" onclick="removeAddPoke(Scizor, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/scizor/stat/stat-scizor.png');"></button>
+            <button class="IndivPoke Supporter" id="Clefable" onclick="removeAddPoke(Clefable, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/clefable/stat/stat-clefable.png');"></button>
+            <button class="IndivPoke Speedster" id="Zoroark" onclick="removeAddPoke(Zoroark, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/zoroark/stat/stat-zoroark.png');"></button>
+            <button class="IndivPoke Supporter" id="Sableye" onclick="removeAddPoke(Sableye, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/sableye/stat/stat-sableye.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Urshifu" onclick="removeAddPoke(Urshifu, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/urshifu/stat/stat-urshifu.png');"></button>
+            <button class="IndivPoke Attacker" id="Dragapult" onclick="removeAddPoke(Dragapult, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/dragapult/stat/stat-dragapult.png');"></button>
+            <button class="IndivPoke Supporter" id="Comfey" onclick="removeAddPoke(Comfey, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/comfey/stat/stat-comfey.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Zacian" onclick="removeAddPoke(Zacian, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/zacian/stat/stat-zacian.png');"></button>
+            <button class="IndivPoke Defender" id="Goodra" onclick="removeAddPoke(Goodra, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/goodra/stat/stat-goodra.png');"></button>
+            <button class="IndivPoke Defender" id="Lapras" onclick="removeAddPoke(Lapras, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/lapras/stat/stat-lapras.png');"></button>
+            <button class="IndivPoke Attacker" id="Chandelure" onclick="removeAddPoke(Chandelure, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/chandelure/stat/stat-chandelure.png');"></button>
+            <button class="IndivPoke Defender" id="Umbreon" onclick="removeAddPoke(Umbreon, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/umbreon/stat/stat-umbreon.png');"></button>
+            <button class="IndivPoke Speedster" id="Leafeon" onclick="removeAddPoke(Leafeon, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/leafeon/stat/stat-leafeon.png');"></button>
+            <button class="IndivPoke Attacker" id="Inteleon" onclick="removeAddPoke(Inteleon, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/inteleon/stat/stat-inteleon.png');"></button>
+            <button class="IndivPoke All-Rounder" id="MewtwoX" onclick="removeAddPoke(MewtwoX, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/mewtwo/stat/stat-mewtwo.png');"></button>
+            <button class="IndivPoke Attacker" id="MewtwoY" onclick="removeAddPoke(MewtwoY, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/mewtwo/stat/stat-mewtwo.png');"></button>
+            <p id="IndivPokeText">Click Pokemon to Remove Or Add Them to the Pool</p>
+        </div>
+    </fieldset>
+    <div id="RandomResults"> <!-- Must show character, lane, moves, Battle item, held items -->
+        <img id="UniteLogo" src=UniteRandomizerImages/unite-logo.png>
+        <img id="ExtraFlourish" src="UniteRandomizerImages/carousel-emblem.png">
+        <img id="PokemonDisplay" onclick="character(), moves(document.getElementById('PokemonName').innerHTML)">
+        <img id="Lane" onclick="lane()">
+        <img id="Move1" onclick="moves(document.getElementById('PokemonName').innerHTML)">
+        <img id="Move2" onclick="moves(document.getElementById('PokemonName').innerHTML)">
+        <img id="BattleItemDisplay" onclick="battleItem()">
+        <img id="HeldItem1" onclick="heldItems()">
+        <img id="HeldItem2" onclick="heldItems()">
+        <img id="HeldItem3" onclick="heldItems()">
+        <p id="PokemonName" onclick="character(), moves(document.getElementById('PokemonName').innerHTML)"></p>
+        <button id="UnderColor"></button>
+    </div>
+    <button id="Randomize" onclick="randomize()">Randomize!</button>
+    <script>
+
+    LaneCheckbox = document.getElementById("RandLane");
+    MovesCheckbox = document.getElementById("Moves");
+    BattleItemCheckbox = document.getElementById("BattleItem");
+    HeldItemsCheckbox = document.getElementById("HeldItems");
+    AttackersCheckbox = document.getElementById("AllowAttackers");
+    DefendersCheckbox = document.getElementById("AllowDefenders");
+    AllRoundersCheckbox = document.getElementById("AllowAllRounders");
+    SpeedstersCheckbox = document.getElementById("AllowSpeedsters");
+    SupportersCheckbox = document.getElementById("AllowSupporters");
+
+    PokemonDisplay = document.getElementById("PokemonDisplay");
+    LaneDisplay = document.getElementById("Lane");
+    Move1Display = document.getElementById("Move1");
+    Move2Display = document.getElementById("Move2");
+    BattleItemDisplay = document.getElementById("BattleItemDisplay");
+    HeldItemsDisplay1 = document.getElementById("HeldItem1");
+    HeldItemsDisplay2 = document.getElementById("HeldItem2");
+    HeldItemsDisplay3 = document.getElementById("HeldItem3");
+    UnderColor = document.getElementById("UnderColor");
+
+
+    let RandomizeLane = true;
+    let RandomizeMoves = true;
+    let RandomizeBattleItem = true;
+    let RandomizeHeldItems = false;
+    let AttackersAllowed = true;
+    let DefendersAllowed = true;
+    let AllRoundersAllowed = true;
+    let SpeedstersAllowed = true;
+    let SupportersAllowed = true;
+
+    LaneCheckbox.addEventListener('change', function(e) {
+        if(RandomizeLane==true){
+            RandomizeLane=false;
+            console.log("Turned Off Lane Randomization.");
+        }else{
+            RandomizeLane=true;
+            console.log("Turned On Lane Randomization.");
+        }
+    })
+
+    MovesCheckbox.addEventListener('change', function(e) {
+        if(RandomizeMoves==true){
+            RandomizeMoves=false;
+            console.log("Turned Off Moves Randomization.");
+        }else{
+            RandomizeMoves=true;
+            console.log("Turned On Moves Randomization.");
+        }
+    })
+
+    BattleItemCheckbox.addEventListener('change', function(e) {
+        if(RandomizeBattleItem==true){
+            RandomizeBattleItem=false;
+            console.log("Turned Off Battle Item Randomization.");
+        }else{
+            RandomizeBattleItem=true;
+            console.log("Turned On Battle Item Randomization.");
+        }
+    })
+
+    HeldItemsCheckbox.addEventListener('change', function(e) {
+        if(RandomizeHeldItems==true){
+            RandomizeHeldItems=false;
+            console.log("Turned Off Held Items Randomization.");
+        }else{
+            RandomizeHeldItems=true;
+            console.log("Turned On Held Items Randomization.");
+        }
+    })
+
+    AttackersCheckbox.addEventListener('change', function(e) {
+        if(AttackersAllowed==true){
+            AttackersAllowed=false;
+            console.log("Turned Off Attackers.");
+        }else{
+            AttackersAllowed=true;
+            console.log("Turned On Attackers.");
+        }
+    })
+
+    DefendersCheckbox.addEventListener('change', function(e) {
+        if(DefendersAllowed==true){
+            DefendersAllowed=false;
+            console.log("Turned Off Defenders.");
+        }else{
+            DefendersAllowed=true;
+            console.log("Turned On Defenders.");
+        }
+    })
+
+    AllRoundersCheckbox.addEventListener('change', function(e) {
+        if(AllRoundersAllowed==true){
+            AllRoundersAllowed=false;
+            console.log("Turned Off AllRounders.");
+        }else{
+            AllRoundersAllowed=true;
+            console.log("Turned On AllRounders.");
+        }
+    })
+
+    SpeedstersCheckbox.addEventListener('change', function(e) {
+        if(SpeedstersAllowed==true){
+            SpeedstersAllowed=false;
+            console.log("Turned Off Speedsters.");
+        }else{
+            SpeedstersAllowed=true;
+            console.log("Turned On Speedsters.");
+        }
+    })
+
+    SupportersCheckbox.addEventListener('change', function(e) {
+        if(SupportersAllowed==true){
+            SupportersAllowed=false;
+            console.log("Turned Off Supporters.");
+        }else{
+            SupportersAllowed=true;
+            console.log("Turned On Supporters.");
+        }
+    })
+
+
+
+    const Pokemon = {Name: "Base", CharClass: "Base"}
+    const Cinderace = Object.create(Pokemon);   Cinderace.Name="Cinderace"; Cinderace.CharClass="Attacker";
+    const Garchomp = Object.create(Pokemon);   Garchomp.Name="Garchomp"; Garchomp.CharClass="All-Rounder";
+    const Gengar = Object.create(Pokemon);   Gengar.Name="Gengar"; Gengar.CharClass="Speedster";
+    const Cramorant = Object.create(Pokemon);   Cramorant.Name="Cramorant"; Cramorant.CharClass="Attacker";
+    const NinetalesAlola = Object.create(Pokemon);   NinetalesAlola.Name="Alolan-Ninetales"; NinetalesAlola.CharClass="Attacker";
+    const Wigglytuff = Object.create(Pokemon);   Wigglytuff.Name="Wigglytuff"; Wigglytuff.CharClass="Supporter";
+    const Machamp = Object.create(Pokemon);   Machamp.Name="Machamp"; Machamp.CharClass="All-Rounder";
+    const Absol = Object.create(Pokemon);   Absol.Name="Absol"; Absol.CharClass="Speedster";
+    const Slowbro = Object.create(Pokemon);   Slowbro.Name="Slowbro"; Slowbro.CharClass="Defender";
+    const MrMime = Object.create(Pokemon);   MrMime.Name="Mr-Mime"; MrMime.CharClass="Supporter";
+    const Venusaur = Object.create(Pokemon);   Venusaur.Name="Venusaur"; Venusaur.CharClass="Attacker";
+    const Lucario = Object.create(Pokemon);   Lucario.Name="Lucario"; Lucario.CharClass="All-Rounder";
+    const Talonflame = Object.create(Pokemon);   Talonflame.Name="Talonflame"; Talonflame.CharClass="Speedster";
+    const Eldegoss = Object.create(Pokemon);   Eldegoss.Name="Eldegoss"; Eldegoss.CharClass="Supporter";
+    const Greninja = Object.create(Pokemon);   Greninja.Name="Greninja"; Greninja.CharClass="Attacker";
+    const Crustle = Object.create(Pokemon);   Crustle.Name="Crustle"; Crustle.CharClass="Defender";
+    const Snorlax = Object.create(Pokemon);   Snorlax.Name="Snorlax"; Snorlax.CharClass="Defender";
+    const Charizard = Object.create(Pokemon);   Charizard.Name="Charizard"; Charizard.CharClass="All-Rounder";
+    const Pikachu = Object.create(Pokemon);   Pikachu.Name="Pikachu"; Pikachu.CharClass="Attacker";
+    const Zeraora = Object.create(Pokemon);   Zeraora.Name="Zeraora"; Zeraora.CharClass="Speedster";
+    const Gardevoir = Object.create(Pokemon);   Gardevoir.Name="Gardevoir"; Gardevoir.CharClass="Attacker";
+    const Blissey = Object.create(Pokemon);   Blissey.Name="Blissey"; Blissey.CharClass="Supporter";
+    const Blastoise = Object.create(Pokemon);   Blastoise.Name="Blastoise"; Blastoise.CharClass="Defender";
+    const Mamoswine = Object.create(Pokemon);   Mamoswine.Name="Mamoswine"; Mamoswine.CharClass="Defender";
+    const Sylveon = Object.create(Pokemon);   Sylveon.Name="Sylveon"; Sylveon.CharClass="Attacker";
+    const Greedent = Object.create(Pokemon);   Greedent.Name="Greedent"; Greedent.CharClass="Defender";
+    const Decidueye = Object.create(Pokemon);   Decidueye.Name="Decidueye"; Decidueye.CharClass="Attacker";
+    const Tsareena = Object.create(Pokemon);   Tsareena.Name="Tsareena"; Tsareena.CharClass="All-Rounder";
+    const Dragonite = Object.create(Pokemon);   Dragonite.Name="Dragonite"; Dragonite.CharClass="All-Rounder";
+    const Trevenant = Object.create(Pokemon);   Trevenant.Name="Trevenant"; Trevenant.CharClass="Defender";
+    const Aegislash = Object.create(Pokemon);   Aegislash.Name="Aegislash"; Aegislash.CharClass="All-Rounder";
+    const Hoopa = Object.create(Pokemon);   Hoopa.Name="Hoopa"; Hoopa.CharClass="Supporter";
+    const Duraludon = Object.create(Pokemon);   Duraludon.Name="Duraludon"; Duraludon.CharClass="Attacker";
+    const Azumarill = Object.create(Pokemon);   Azumarill.Name="Azumarill"; Azumarill.CharClass="All-Rounder";
+    const Espeon = Object.create(Pokemon);   Espeon.Name="Espeon"; Espeon.CharClass="Attacker";
+    const Delphox = Object.create(Pokemon);   Delphox.Name="Delphox"; Delphox.CharClass="Attacker";
+    const Glaceon = Object.create(Pokemon);   Glaceon.Name="Glaceon"; Glaceon.CharClass="Attacker";
+    const Buzzwole = Object.create(Pokemon);   Buzzwole.Name="Buzzwole"; Buzzwole.CharClass="All-Rounder";
+    const Tyranitar = Object.create(Pokemon);   Tyranitar.Name="Tyranitar"; Tyranitar.CharClass="All-Rounder";
+    const Mew = Object.create(Pokemon);   Mew.Name="Mew"; Mew.CharClass="Attacker";
+    const Dodrio = Object.create(Pokemon);   Dodrio.Name="Dodrio"; Dodrio.CharClass="Speedster";
+    const Scizor = Object.create(Pokemon);   Scizor.Name="Scizor"; Scizor.CharClass="All-Rounder";
+    const Clefable = Object.create(Pokemon);   Clefable.Name="Clefable"; Clefable.CharClass="Supporter";
+    const Zoroark = Object.create(Pokemon);   Zoroark.Name="Zoroark"; Zoroark.CharClass="Speedster";
+    const Sableye = Object.create(Pokemon);   Sableye.Name="Sableye"; Sableye.CharClass="Supporter";
+    const Urshifu = Object.create(Pokemon);   Urshifu.Name="Urshifu"; Urshifu.CharClass="All-Rounder";
+    const Dragapult = Object.create(Pokemon);   Dragapult.Name="Dragapult"; Dragapult.CharClass="Attacker";
+    const Comfey = Object.create(Pokemon);   Comfey.Name="Comfey"; Comfey.CharClass="Supporter";
+    const Zacian = Object.create(Pokemon);   Zacian.Name="Zacian"; Zacian.CharClass="All-Rounder";
+    const Goodra = Object.create(Pokemon);   Goodra.Name="Goodra"; Goodra.CharClass="Defender";
+    const Lapras = Object.create(Pokemon);   Lapras.Name="Lapras"; Lapras.CharClass="Defender";
+    const Chandelure = Object.create(Pokemon);   Chandelure.Name="Chandelure"; Chandelure.CharClass="Attacker";
+    const Umbreon = Object.create(Pokemon);   Umbreon.Name="Umbreon"; Umbreon.CharClass="Defender";
+    const Leafeon = Object.create(Pokemon);   Leafeon.Name="Leafeon"; Leafeon.CharClass="Speedster";
+    const Inteleon = Object.create(Pokemon);   Inteleon.Name="Inteleon"; Inteleon.CharClass="Attacker";
+    const MewtwoX = Object.create(Pokemon);   MewtwoX.Name="Mewtwo"; MewtwoX.CharClass="All-Rounder";
+    const MewtwoY = Object.create(Pokemon);   MewtwoY.Name="Mewtwo"; MewtwoY.CharClass="Attacker";
+
+    let allPokemonPERM = [Cinderace, Garchomp, Gengar, Cramorant, NinetalesAlola, Wigglytuff, Machamp, Absol,
+    Slowbro, MrMime, Venusaur, Lucario, Talonflame, Eldegoss, Greninja, Crustle, Snorlax, Charizard, Pikachu,
+    Zeraora, Gardevoir, Blissey, Blastoise, Mamoswine, Sylveon, Greedent, Decidueye, Tsareena, Dragonite, Trevenant,
+    Aegislash, Hoopa, Duraludon, Azumarill, Espeon, Delphox, Glaceon, Buzzwole, Tyranitar, Mew, Dodrio, Scizor, Clefable,
+    Zoroark, Sableye, Urshifu, Dragapult, Comfey, Zacian, Goodra, Lapras, Chandelure, Umbreon, Leafeon, Inteleon, MewtwoX, MewtwoY];
+
+    let allPokemon = [Cinderace, Garchomp, Gengar, Cramorant, NinetalesAlola, Wigglytuff, Machamp, Absol,
+    Slowbro, MrMime, Venusaur, Lucario, Talonflame, Eldegoss, Greninja, Crustle, Snorlax, Charizard, Pikachu,
+    Zeraora, Gardevoir, Blissey, Blastoise, Mamoswine, Sylveon, Greedent, Decidueye, Tsareena, Dragonite, Trevenant,
+    Aegislash, Hoopa, Duraludon, Azumarill, Espeon, Delphox, Glaceon, Buzzwole, Tyranitar, Mew, Dodrio, Scizor, Clefable,
+    Zoroark, Sableye, Urshifu, Dragapult, Comfey, Zacian, Goodra, Lapras, Chandelure, Umbreon, Leafeon, Inteleon, MewtwoX, MewtwoY];
+
+    randomize();
+
+    function removeAllPoke(){
+        allPokemon = [];
+        let temp = document.getElementsByClassName("IndivPoke");
+        for(button of temp){
+            button.style.filter="grayscale(100%)";
+        }
+    }
+
+    function addAllPoke(){
+        allPokemon = allPokemonPERM;
+        let temp = document.getElementsByClassName("IndivPoke");
+        for(button of temp){
+            button.style.filter="none";
+        }
+    }
+
+    function removeAddPoke(Pokemon, thisID){
+        const index = allPokemon.indexOf(Pokemon);
+        if(index>-1){
+            allPokemon.splice(index, 1);
+            console.log("Removed "+Pokemon.Name);
+            document.getElementById(thisID).style.filter="grayscale(100%)";
+        }else{
+            allPokemon.push(Pokemon);
+            console.log("Added "+Pokemon.Name);
+            document.getElementById(thisID).style.filter="none";
+        }
+    }
+
+    function lane(){
+        if(RandomizeLane==true){
+            LaneDisplay.style.visibility="visible";
+            let randInt = Math.floor(Math.random() * 3); //randInt from 0-2
+            switch(randInt){
+                case 0: LaneDisplay.src="UniteRandomizerImages/TopLane.png"; break;
+                case 1: LaneDisplay.src="UniteRandomizerImages/Jungle.png"; break;
+                case 2: LaneDisplay.src="UniteRandomizerImages/BottomLane.png"; break;
+            }
+        }else{
+            LaneDisplay.style.visibility="hidden";
+        }
+	}
+
+	function character(){
+        let loopNeeded = true;
+        let iterations = 0;
+        while(loopNeeded){
+            let randInt = Math.floor(Math.random() * allPokemon.length); //randInt from 0-56 when array is full
+            if((allPokemon[randInt].CharClass=="Attacker"&&AttackersAllowed==true)||
+            (allPokemon[randInt].CharClass=="Defender"&&DefendersAllowed==true)||
+            (allPokemon[randInt].CharClass=="All-Rounder"&&AllRoundersAllowed==true)||
+            (allPokemon[randInt].CharClass=="Speedster"&&SpeedstersAllowed==true)||
+            (allPokemon[randInt].CharClass=="Supporter"&&SupportersAllowed==true)){
+                PokemonDisplay.src="https://unite.pokemon.com/images/pokemon/"+(allPokemon[randInt].Name).toLowerCase()+"/stat/stat-"+(allPokemon[randInt].Name).toLowerCase()+".png";
+                document.getElementById("PokemonName").innerHTML=allPokemon[randInt].Name;
+                if(allPokemon[randInt].CharClass=="Attacker"){
+                    UnderColor.style.backgroundColor="#F16C38";
+                }else if(allPokemon[randInt].CharClass=="Defender"){
+                    UnderColor.style.backgroundColor="#ACED5B";
+                }else if(allPokemon[randInt].CharClass=="All-Rounder"){
+                    UnderColor.style.backgroundColor="#CE5FD3";
+                }else if(allPokemon[randInt].CharClass=="Speedster"){
+                    UnderColor.style.backgroundColor="#29A5E3";
+                }else if(allPokemon[randInt].CharClass=="Supporter"){
+                    UnderColor.style.backgroundColor="#DC923F";
+                }
+                return allPokemon[randInt].Name;
+            }else{
+                iterations++;
+                if(iterations==200){
+                    PokemonDisplay.src="";
+                    document.getElementById("PokemonName").innerHTML="";
+                    return;
+                }
+            }
+        }
+    }
+
+    function moves(PokeName){
+        if(RandomizeMoves==true){
+            let randInt = Math.floor(Math.random() * 2)+1; //randInt from 1-2
+            let randInt2 = Math.floor(Math.random() * 2)+1; //randInt from 1-2
+            Move1Display.src="UniteRandomizerImages/MoveImages/"+PokeName+"1-"+randInt+".webp";
+            Move2Display.src="UniteRandomizerImages/MoveImages/"+PokeName+"2-"+randInt2+".webp";
+            Move1Display.style.visibility="visible";
+            Move2Display.style.visibility="visible";
+            if(PokeName=="Urshifu"){
+                if(randInt==1){
+                    Move1Display.src="UniteRandomizerImages/MoveImages/Urshifu1-1.webp";
+                    Move2Display.src="UniteRandomizerImages/MoveImages/Urshifu2-1.webp";
+                }else{
+                    Move1Display.src="UniteRandomizerImages/MoveImages/Urshifu1-2.webp";
+                    Move2Display.src="UniteRandomizerImages/MoveImages/Urshifu2-2.webp";
+                }
+            }
+            if(PokeName=="Scizor"){
+                if(randInt==2){
+                    Move1Display.src="UniteRandomizerImages/MoveImages/Scyther1-1.webp";
+                    Move2Display.src="UniteRandomizerImages/MoveImages/Scyther2-"+randInt2+".webp";
+                }
+            }
+            if(PokeName=="Mew"){
+                Move1Display.style.visibility="hidden";
+                Move2Display.style.visibility="hidden";
+                
+            }
+        }else{
+            Move1Display.style.visibility="hidden";
+            Move2Display.style.visibility="hidden";
+        }
+    }
+
+    function battleItem(){
+        if(RandomizeBattleItem==true){
+            BattleItemDisplay.style.visibility="visible";
+            let randInt = Math.floor(Math.random() * 8); //randInt from 0-7
+            switch(randInt){
+                case 0: BattleItemDisplay.src="UniteRandomizerImages/BattleItems/EjectButton.png"; break;
+                case 1: BattleItemDisplay.src="UniteRandomizerImages/BattleItems/FullHeal.png"; break;
+                case 2: BattleItemDisplay.src="UniteRandomizerImages/BattleItems/GoalGetter.png"; break;
+                case 3: BattleItemDisplay.src="UniteRandomizerImages/BattleItems/Potion.png"; break;
+                case 4: BattleItemDisplay.src="UniteRandomizerImages/BattleItems/SlowSmoke.png"; break;
+                case 5: BattleItemDisplay.src="UniteRandomizerImages/BattleItems/XAttack.png"; break;
+                case 6: BattleItemDisplay.src="UniteRandomizerImages/BattleItems/XSpeed.png"; break;
+                case 7: BattleItemDisplay.src="UniteRandomizerImages/BattleItems/FluffyTail.png"; break;
+            }
+        }else{
+            BattleItemDisplay.style.visibility="hidden";
+        }
+    }
+
+    function heldItems(PokeName){
+        if(RandomizeHeldItems==true){
+            HeldItemsDisplay1.style.visibility="visible";
+            HeldItemsDisplay2.style.visibility="visible";
+            HeldItemsDisplay3.style.visibility="visible";
+            let randInt1 = Math.floor(Math.random() * 23); //randInt from 0-22
+            let loopNeeded=true;
+            let randInt2;
+            let randInt3;
+            while(loopNeeded){
+                randInt2 = Math.floor(Math.random() * 23); //randInt from 0-22
+                if(randInt2!=randInt1){
+                    loopNeeded=false;
+                }
+            }
+            loopNeeded=true;
+            while(loopNeeded){
+                randInt3 = Math.floor(Math.random() * 23); //randInt from 0-22
+                if(randInt3!=randInt1&&randInt3!=randInt2){
+                    loopNeeded=false;
+                }
+            }
+            switch(randInt1){
+                case 0: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/AeosCookie.png"; break;
+                case 1: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/AssaultVest.png"; break;
+                case 2: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/AttackWeight.png"; break;
+                case 3: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/BuddyBarrier.png"; break;
+                case 4: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/ChoiceSpecs.png"; break;
+                case 5: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/DrainCrown.png"; break;
+                case 6: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/EnergyAmplifier.png"; break;
+                case 7: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/EXPShare.png"; break;
+                case 8: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/FloatStone.png"; break;
+                case 9: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/FocusBand.png"; break;
+                case 10: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/Leftovers.png"; break;
+                case 11: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/MuscleBand.png"; break;
+                case 12: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/RapidFireScarf.png"; break;
+                case 13: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/RazorClaw.png"; break;
+                case 14: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/RescueHood.png"; break;
+                case 15: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/RockyHelmet.png"; break;
+                case 16: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/ScopeLens.png"; break;
+                case 17: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/ScoreShield.png"; break;
+                case 18: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/ShellBell.png"; break;
+                case 19: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/SlickSpoon.png"; break;
+                case 20: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/SpAtkSpecs.png"; break;
+                case 21: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/WeaknessPolicy.png"; break;
+                case 22: HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/WiseGlasses.png"; break;
+            }
+            switch(randInt2){
+                case 0: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/AeosCookie.png"; break;
+                case 1: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/AssaultVest.png"; break;
+                case 2: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/AttackWeight.png"; break;
+                case 3: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/BuddyBarrier.png"; break;
+                case 4: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/ChoiceSpecs.png"; break;
+                case 5: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/DrainCrown.png"; break;
+                case 6: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/EnergyAmplifier.png"; break;
+                case 7: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/EXPShare.png"; break;
+                case 8: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/FloatStone.png"; break;
+                case 9: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/FocusBand.png"; break;
+                case 10: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/Leftovers.png"; break;
+                case 11: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/MuscleBand.png"; break;
+                case 12: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/RapidFireScarf.png"; break;
+                case 13: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/RazorClaw.png"; break;
+                case 14: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/RescueHood.png"; break;
+                case 15: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/RockyHelmet.png"; break;
+                case 16: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/ScopeLens.png"; break;
+                case 17: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/ScoreShield.png"; break;
+                case 18: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/ShellBell.png"; break;
+                case 19: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/SlickSpoon.png"; break;
+                case 20: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/SpAtkSpecs.png"; break;
+                case 21: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/WeaknessPolicy.png"; break;
+                case 22: HeldItemsDisplay2.src="UniteRandomizerImages/HeldItems/WiseGlasses.png"; break;
+            }
+            switch(randInt3){
+                case 0: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/AeosCookie.png"; break;
+                case 1: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/AssaultVest.png"; break;
+                case 2: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/AttackWeight.png"; break;
+                case 3: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/BuddyBarrier.png"; break;
+                case 4: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/ChoiceSpecs.png"; break;
+                case 5: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/DrainCrown.png"; break;
+                case 6: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/EnergyAmplifier.png"; break;
+                case 7: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/EXPShare.png"; break;
+                case 8: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/FloatStone.png"; break;
+                case 9: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/FocusBand.png"; break;
+                case 10: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/Leftovers.png"; break;
+                case 11: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/MuscleBand.png"; break;
+                case 12: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/RapidFireScarf.png"; break;
+                case 13: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/RazorClaw.png"; break;
+                case 14: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/RescueHood.png"; break;
+                case 15: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/RockyHelmet.png"; break;
+                case 16: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/ScopeLens.png"; break;
+                case 17: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/ScoreShield.png"; break;
+                case 18: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/ShellBell.png"; break;
+                case 19: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/SlickSpoon.png"; break;
+                case 20: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/SpAtkSpecs.png"; break;
+                case 21: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/WeaknessPolicy.png"; break;
+                case 22: HeldItemsDisplay3.src="UniteRandomizerImages/HeldItems/WiseGlasses.png"; break;
+            }
+            if(PokeName=="Zacian"){
+                HeldItemsDisplay1.src="UniteRandomizerImages/HeldItems/RustedSword.png";
+            }
+        }else{
+            HeldItemsDisplay1.style.visibility="hidden";
+            HeldItemsDisplay2.style.visibility="hidden";
+            HeldItemsDisplay3.style.visibility="hidden";
+        }
+    }
+
+    function randomize(){
+        lane();
+        let char = character();
+        moves(char);
+        battleItem();
+        heldItems(char);
+
+        setTimeout(function(){
+            lane();
+            let char = character();
+            moves(char);
+            battleItem();
+            heldItems(char);
+        }, 100);
+
+        setTimeout(function(){
+            lane();
+            let char = character();
+            moves(char);
+            battleItem();
+            heldItems(char);
+        }, 300);
+
+        setTimeout(function(){
+            lane();
+            let char = character();
+            moves(char);
+            battleItem();
+            heldItems(char);
+        }, 500);
+
+        setTimeout(function(){
+            lane();
+            let char = character();
+            moves(char);
+            battleItem();
+            heldItems(char);
+        }, 700);
+
+        setTimeout(function(){
+            lane();
+            let char = character();
+            moves(char);
+            battleItem();
+            heldItems(char);
+        }, 900);
+
+        setTimeout(function(){
+            lane();
+            let char = character();
+            moves(char);
+            battleItem();
+            heldItems(char);
+        }, 1100);
+    }
+
+    </script>
+</body>
+</html>
