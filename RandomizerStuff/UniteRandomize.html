@@ -92,6 +92,7 @@
             <button class="IndivPoke Attacker" id="Inteleon" onclick="removeAddPoke(Inteleon, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/inteleon/stat/stat-inteleon.png');"></button>
             <button class="IndivPoke All-Rounder" id="MewtwoX" onclick="removeAddPoke(MewtwoX, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/mewtwo/stat/stat-mewtwo.png');"></button>
             <button class="IndivPoke Attacker" id="MewtwoY" onclick="removeAddPoke(MewtwoY, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/mewtwo/stat/stat-mewtwo.png');"></button>
+            <button class="IndivPoke All-Rounder" id="Mimikyu" onclick="removeAddPoke(Mimikyu, this.id)" style="background-image: url('https://unite.pokemon.com/images/pokemon/mimikyu/stat/stat-mimikyu.png');"></button>
             <p id="IndivPokeText">Click Pokemon to Remove Or Add Them to the Pool</p>
         </div>
     </fieldset>
@@ -293,18 +294,19 @@
     const Inteleon = Object.create(Pokemon);   Inteleon.Name="Inteleon"; Inteleon.CharClass="Attacker";
     const MewtwoX = Object.create(Pokemon);   MewtwoX.Name="Mewtwo"; MewtwoX.CharClass="All-Rounder";
     const MewtwoY = Object.create(Pokemon);   MewtwoY.Name="Mewtwo"; MewtwoY.CharClass="Attacker";
+    const Mimikyu = Object.create(Pokemon);   Mimikyu.Name="Mimikyu"; Mimikyu.CharClass="All-Rounder";
 
     let allPokemonPERM = [Cinderace, Garchomp, Gengar, Cramorant, NinetalesAlola, Wigglytuff, Machamp, Absol,
     Slowbro, MrMime, Venusaur, Lucario, Talonflame, Eldegoss, Greninja, Crustle, Snorlax, Charizard, Pikachu,
     Zeraora, Gardevoir, Blissey, Blastoise, Mamoswine, Sylveon, Greedent, Decidueye, Tsareena, Dragonite, Trevenant,
     Aegislash, Hoopa, Duraludon, Azumarill, Espeon, Delphox, Glaceon, Buzzwole, Tyranitar, Mew, Dodrio, Scizor, Clefable,
-    Zoroark, Sableye, Urshifu, Dragapult, Comfey, Zacian, Goodra, Lapras, Chandelure, Umbreon, Leafeon, Inteleon, MewtwoX, MewtwoY];
+    Zoroark, Sableye, Urshifu, Dragapult, Comfey, Zacian, Goodra, Lapras, Chandelure, Umbreon, Leafeon, Inteleon, MewtwoX, MewtwoY, Mimikyu];
 
     let allPokemon = [Cinderace, Garchomp, Gengar, Cramorant, NinetalesAlola, Wigglytuff, Machamp, Absol,
     Slowbro, MrMime, Venusaur, Lucario, Talonflame, Eldegoss, Greninja, Crustle, Snorlax, Charizard, Pikachu,
     Zeraora, Gardevoir, Blissey, Blastoise, Mamoswine, Sylveon, Greedent, Decidueye, Tsareena, Dragonite, Trevenant,
     Aegislash, Hoopa, Duraludon, Azumarill, Espeon, Delphox, Glaceon, Buzzwole, Tyranitar, Mew, Dodrio, Scizor, Clefable,
-    Zoroark, Sableye, Urshifu, Dragapult, Comfey, Zacian, Goodra, Lapras, Chandelure, Umbreon, Leafeon, Inteleon, MewtwoX, MewtwoY];
+    Zoroark, Sableye, Urshifu, Dragapult, Comfey, Zacian, Goodra, Lapras, Chandelure, Umbreon, Leafeon, Inteleon, MewtwoX, MewtwoY, Mimikyu];
 
     randomize();
 
